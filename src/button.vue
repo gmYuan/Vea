@@ -1,5 +1,8 @@
 <template>
-  <button class="ea-button">按钮</button>
+  <button class="ea-button">
+
+    <slot></slot>
+  </button>
 </template>
 
 
