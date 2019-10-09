@@ -1,10 +1,10 @@
 <template>
   <button class="ea-button" :class= "{[`icon-${iconPosition}`]: true} ">
     <svg class="icon" aria-hidden="true" v-if="iconType">
-      <use :xlink:href=`#i-${iconType}`></use>
+      <use :xlink:href="`#i-${iconType}`"></use>
     </svg>
 
-    <div>
+    <div class="content">
       <slot></slot>
     </div>
 
@@ -16,7 +16,10 @@
   export default {
     props: {
       iconType: String,
-      iconPosition: String
+      iconPosition: {
+        type: String,
+        default: 'left'
+      }
     }
 
   }
@@ -27,6 +30,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    vertical-align: middle;
+
 
     height: var(--button-height);
     font-size: var(--font-size);
@@ -49,15 +54,29 @@
       outline: none;
     }
 
+    .icon {
+      margin-top: 0.2em;
+      margin-right: 0.3em;
+
+      width: 1em; 
+      height: 1em;
+      // vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+
+    &.icon-right {
+      .icon {
+        order: 2;
+        margin-left: 0.3em;
+        margin-right: 0;
+      }
+    }
+
 
   }
 
 
-  .icon {
-    width: 1em; height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-  }
+  
 
 </style>
