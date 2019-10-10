@@ -1,11 +1,10 @@
 <template>
   <button class="ea-button" :class= "{[`icon-${iconPosition}`]: true} ">
-    <svg class="icon" aria-hidden="true" v-if="iconType">
-      <use :xlink:href="`#i-${iconType}`"></use>
-    </svg>
+    <e-icon :icon-name="iconType" v-if="iconType" class="icon"></e-icon>
+
 
     <div class="content">
-      <slot></slot>
+      <slot/>
     </div>
 
   </button>
@@ -18,7 +17,10 @@
       iconType: String,
       iconPosition: {
         type: String,
-        default: 'left'
+        default: 'left',
+        validator: function (value) {
+          return (value === 'left' || value === 'right')
+        }
       }
     }
 
@@ -57,12 +59,6 @@
     .icon {
       margin-top: 0.2em;
       margin-right: 0.3em;
-
-      width: 1em; 
-      height: 1em;
-      // vertical-align: -0.15em;
-      fill: currentColor;
-      overflow: hidden;
     }
 
     &.icon-right {
@@ -77,6 +73,6 @@
   }
 
 
-  
+
 
 </style>
