@@ -1,5 +1,5 @@
 <template>
-  <button class="ea-button" :class= "{[`icon-${iconPosition}`]: true} " @click="changeIcon">
+  <button class="e-button" :class= "{[`icon-${iconPosition}`]: true} " @click="changeIcon">
 
     <e-icon :icon-name="iconType" v-if="iconType && !showLoading" class="icon"></e-icon>
     <!-- 加载图标   -->
@@ -52,7 +52,7 @@
 </script>
 
 <style scoped lang="scss">
-  .ea-button {
+  .e-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;

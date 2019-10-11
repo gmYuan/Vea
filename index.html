@@ -1,60 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-    <title>按钮组件</title>
-    <style>
-      * {margin: 0; padding: 0; box-sizing: border-box;}
+  <meta charset="UTF-8">
+  <title>按钮组件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      :root {
-        --button-height: 32px;
-        --font-size: 14px;
-        --button-bg: white;
+    :root {
+      --button-height: 32px;
+      --font-size: 14px;
+      --button-bg: white;
 
-        --border-color: #999;
-        --border-radius: 4px;
-        --color: #333;
+      --border-color: #999;
+      --border-radius: 4px;
+      --color: #333;
 
-        --border-color-hover: #666;
-        --button-active-bg: #eee;
-      }
+      --border-color-hover: #666;
+      --border-color-hover: red;
+      --button-active-bg: #eee;
+    }
 
-      body {
-        font-size: var(--font-size);
-      }
+    body {
+      font-size: var(--font-size);
+    }
 
-      #app {
-        margin: 20px;
-      }
+    #app {
+      margin: 20px;
+    }
   </style>
 
 </head>
 <body>
 
-  <div id="app">
+<div id="app">
 
+  <e-button>
+    按钮1
+  </e-button>
+
+  <e-button icon-type="settings">
+    按钮2
+  </e-button>
+
+  <e-button icon-type="settings" icon-position="right">
+    按钮3
+  </e-button>
+
+  <e-button icon-type="settings" :has-loading="false">
+    按钮4
+  </e-button>
+
+
+  <!-- 按钮组   -->
+
+  <e-button-group>
+    <e-button icon-type="left">
+      上一页
+    </e-button>
     <e-button>
-      按钮1
+      更多
+    </e-button>
+    <e-button icon-type="right" icon-position="right">
+      下一页
     </e-button>
 
-    <e-button icon-type="settings">
-      按钮2
-    </e-button>
-
-    <e-button icon-type="settings" icon-position="right">
-      按钮3
-    </e-button>
-
-    <e-button icon-type="settings" :has-loading="false">
-      按钮4
-    </e-button>
-
-    <e-icon icon-name="download"></e-icon>
-
-  </div>
+  </e-button-group>
 
 
-  <script src="./src/app.js"></script>
-  <script src="//at.alicdn.com/t/font_1447682_adtuima52ck.js"></script>
+  <!--  图标组件示例  -->
+  <e-icon icon-name="download"></e-icon>
+
+
+</div>
+
+
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1447682_adtuima52ck.js"></script>
 </body>
 </html>
