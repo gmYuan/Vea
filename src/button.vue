@@ -1,7 +1,9 @@
 <template>
-  <button class="ea-button" :class= "{[`icon-${iconPosition}`]: true} ">
-    <e-icon :icon-name="iconType" v-if="iconType" class="icon"></e-icon>
-    <e-icon icon-name="loading" class="icon loading"></e-icon>
+  <button class="ea-button" :class= "{[`icon-${iconPosition}`]: true} " @click="changeIcon">
+
+    <e-icon :icon-name="iconType" v-if="iconType && !showLoading" class="icon"></e-icon>
+    <!-- 加载图标   -->
+    <e-icon icon-name="loading" class="icon loading" v-if="showLoading"></e-icon>
 
 
     <div class="content">
@@ -16,14 +18,35 @@
   export default {
     props: {
       iconType: String,
-      iconPosition: {
+
+      iconPosition: {  // 图标位置，只支持左/右
         type: String,
         default: 'left',
         validator: function (value) {
           return (value === 'left' || value === 'right')
         }
+      },
+
+      hasLoading: {    // 是否显示按钮laoding效果，默认显示
+        type: Boolean,
+        default: true
       }
-    }
+    },
+
+    data() {
+      return {
+        showLoading: false,   // 按钮点击后显示的加载图标，默认不展示
+      }
+    },
+
+    methods: {
+      changeIcon() {
+        if (this.hasLoading) {    // 只有需要显示loading动效时，才会对默认隐藏的loading图标进行切换显示
+          console.log('1', this.hasLoading)
+          this.showLoading = !this.showLoading
+        }
+      }
+    },
 
   }
 </script>
