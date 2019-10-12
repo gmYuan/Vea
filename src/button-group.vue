@@ -36,7 +36,11 @@
 
     .e-button { /* 仅首尾按钮是 圆角 + 隐藏重合border边框*/
       border-radius: 0;
-      margin-left: -1px;
+
+      & :not(:first-child) {   /*隐藏边框时，首个元素不需要偏移*/
+        margin-left: -1px;
+      }
+
 
       &:hover { /* hover时显示 隐藏的重合border边框*/
         position: relative;
