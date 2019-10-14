@@ -42,7 +42,7 @@
     methods: {
       changeIcon() {
         if (this.hasLoading) {    // 只有需要显示loading动效时，才会对默认隐藏的loading图标进行切换显示
-          console.log('1', this.hasLoading)
+          // console.log('1', this.hasLoading)
           this.showLoading = !this.showLoading
         }
       }
