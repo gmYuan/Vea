@@ -17,6 +17,10 @@ new Vue({
 import chai from 'chai'
 const expect = chai.expect
 
+import spies from 'chai-spies'
+chai.use(spies)
+
+
 /* 单元测试1: 测试iconType */
 {
   const btnCreater = Vue.extend(Button)
@@ -61,7 +65,30 @@ const expect = chai.expect
   // 测试完成: 销毁组件
   vm.$el.remove()
   vm.$destroy()
-  
+}
+
+
+/* 单元测试3: 测试btn点击 会执行事件回调 */
+{
+  const btnCreater = Vue.extend(Button)
+  const vm = new btnCreater({
+    propsData: {
+      iconType: 'settings',
+    }
+  })
+  vm.$mount()    // 创建一个新的button组件
+
+  // 单元测试3
+  let mockEvent = chai.spy(function () {})
+  vm.$on('click', mockEvent)
+
+  const btn = vm.$el
+  btn.click()
+  expect(mockEvent).to.have.been.called()
+
+  // 测试完成: 销毁组件
+  // vm.$el.remove()
+  // vm.$destroy()
 }
 
 
