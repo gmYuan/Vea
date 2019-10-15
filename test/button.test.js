@@ -33,14 +33,14 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        iconType: 'settings',
       }
     })
     vm.$mount(div)
 
     const svgEle = vm.$el.querySelector('.icon')
     const {order} = window.getComputedStyle(svgEle)
-    expect(order).to.eq('1')
+    expect(order).to.eq('0')
 
     vm.$el.remove()
     vm.$destroy()
@@ -50,29 +50,37 @@ describe('Button', () => {
   it('设置 iconPosition 可以改变 order', () => {
     const div = document.createElement('div')
     document.body.appendChild(div)
+
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        iconType: 'settings',
         iconPosition: 'right'
       }
     }).$mount(div)
-    const icon = vm.$el.querySelector('svg')
-    expect(getComputedStyle(icon).order).to.eq('2')
+
+    const svgEle = vm.$el.querySelector('.icon')
+    const {order} = window.getComputedStyle(svgEle)
+    expect(order).to.eq('2')
     vm.$el.remove()
     vm.$destroy()
   })
+
+
   it('点击 button 触发 click 事件', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        iconType: 'settings',
       }
-    }).$mount()
+    })
+    vm.$mount()
 
-    const callback = sinon.fake();
-    vm.$on('click', callback)
+    const callback = sinon.fake()
+    // vm.$on('click', callback)
+    vm.$el.addEventListener("click", callback)
     vm.$el.click()
+    
     expect(callback).to.have.been.called
 
   })
