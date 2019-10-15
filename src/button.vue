@@ -15,6 +15,11 @@
 
 
 <script>
+  import Vue from 'vue'
+  import Icon from './icon'
+  Vue.component('e-icon', Icon)
+
+
   export default {
     props: {
       iconType: String,
