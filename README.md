@@ -14,7 +14,7 @@ Vue造轮子系列
 
 ## 组件
 
-1 单元测试: Karma + Mocha + Sinon
+1 单元测试: Karma + Mocha + Sinon + Travis CI
  
  
 ## 单元测试
