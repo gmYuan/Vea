@@ -14,7 +14,7 @@ Vue造轮子系列
 
 ## 组件
 
-1 基本单元测试库: chai + chai-spies
+1 单元测试: Karma + Mocha + Sinon
  
  
 ## 单元测试
