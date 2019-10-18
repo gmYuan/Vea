@@ -1,6 +1,6 @@
 {
   "name": "veagmyuan",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue的一个UI组件库",
   "main": "dist/index.js",
   "scripts": {
