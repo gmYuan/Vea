@@ -1,8 +1,8 @@
 {
   "name": "veagmyuan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue的一个UI组件库",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "npx parcel index.html --no-cache",
     "build": "parcel build index.html",
