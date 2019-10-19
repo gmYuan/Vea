@@ -4,8 +4,9 @@
   "description": "Vue的一个UI组件库",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "npx parcel index.html --no-cache",
+    "start": "npx parcel index.html --no-cache",
     "build": "parcel build index.html",
+
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
