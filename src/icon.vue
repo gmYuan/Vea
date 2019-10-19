@@ -1,27 +1,28 @@
 <template>
   <div>
     <svg class="icon" aria-hidden="true">
-      <use :xlink:href="`#i-${iconName}`"></use>
+      <use :xlink:href="`#i-${iconName}`" />
     </svg>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      iconName: String,
-    }
 
+import "./svg"
+
+export default {
+  props: {
+    iconName: String
   }
+};
 </script>
 
 <style scoped lang="scss">
-  .icon {
-
-    width: 1em;
-    height: 1em;
-    // vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-  }
+.icon {
+  width: 1em;
+  height: 1em;
+  // vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 </style>
