@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
-  <title>按钮组件</title>
+  <title>组件</title>
   <style>
     * {
       margin: 0;
@@ -27,7 +27,7 @@
       font-size: var(--font-size);
     }
 
-    #app {
+    .box {
       margin: 20px;
     }
   </style>
@@ -36,6 +36,14 @@
 <body>
 
 <div id="app">
+
+  <div class="box">
+    <e-input value="Normal"></e-input>
+    <e-input value="disabled" :disabled="true"></e-input>
+    <e-input value="readonly" :readonly="true"></e-input>
+  </div>
+
+
 
   <e-button>
     按钮1
