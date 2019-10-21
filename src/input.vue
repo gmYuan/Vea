@@ -1,13 +1,29 @@
 <template>
   <div class="wrapper">
-    <input type="text" class="input" :value="value" :disabled="disabled" :readonly="readonly">
+    <input type="text" class="input" 
+      :value="value" 
+      :disabled="disabled" 
+      :readonly="readonly"
+      :class="{error: errorMsg}"
+    />
+
+    <template v-if="errorMsg">
+      <icon iconName="error" class="icon-error"></icon>
+      <span class="errorMessage">{{errorMsg}}</span>
+    </template>
   </div>
 </template>
 
 
 <script>
+
+  import Icon from './icon'
+
+
   export default {
     name: 'eInput',
+
+    components: {Icon},
 
     props: {
       value: String,
@@ -19,6 +35,12 @@
         type: Boolean,
         default: false
       },
+      errorMsg: {
+        type: String,
+        default: ''
+      },
+      
+
     }
   }
 </script>
@@ -46,6 +68,8 @@
   $border-color-hover: #666;
   $box-shadow-color: rgba(0, 0, 0, 0.5);
 
+  $error-color: #F1453D;
+
   .wrapper {
     font-size: $font-size;
     display: inline-block;
@@ -61,7 +85,13 @@
       &:focus { box-shadow: inset 0 1px 3px $box-shadow-color; outline: none; }
 
       &[disabled], &[readonly] {border-color: #bbb; color: #bbb; cursor: not-allowed;}
+    
+      &.error {border-color: $error-color;}
+     
     }
+
+    .icon-error { fill: $error-color; }
+    .errorMessage { color: $error-color; }
 
   }
 

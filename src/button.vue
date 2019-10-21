@@ -85,7 +85,7 @@
 
     /* 图标部分 */
     .icon {
-      margin-top: 0.2em;
+      margin-top: 0.1em;
       margin-right: 0.3em;
     }
 
