@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrap">
     <svg class="icon" aria-hidden="true">
       <use :xlink:href="`#i-${iconName}`" />
     </svg>
@@ -12,12 +12,19 @@ import "./svg"
 
 export default {
   props: {
-    iconName: String
-  }
+    iconName: String,
+  },
+
 };
 </script>
 
 <style scoped lang="scss">
+
+.wrap {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
 .icon {
   width: 1em;
   height: 1em;
