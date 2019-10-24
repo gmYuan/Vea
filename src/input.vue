@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
-    <input type="text" class="input" :value="value" :disabled="disabled" :readonly="readonly">
+    <input type="text" class="input" :value="value" :disabled="disabled" :readonly="readonly"
+           @change="$emit('change', $event)"
+
+    />
   </div>
 </template>
 
