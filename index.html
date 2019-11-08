@@ -36,7 +36,24 @@
 <body>
 
 <div id="app">
+  <!-- 网格组件 -->
+  <div class="box">
+    <e-row>
+      <e-col>1</e-col>
+      <e-col>2</e-col>
+      <e-col>3</e-col>
+    </e-row>
 
+    <!--设置 span跨度-->
+    <e-row>
+      <e-col :span="2">2</e-col>
+      <e-col :span="22">22</e-col>
+    </e-row>
+  </div>
+
+
+
+  <!-- input组件 -->
   <div class="box">
     <e-input value="Normal" @change="inputChange"></e-input>
     <e-input value="disabled" :disabled="true"></e-input>
@@ -48,7 +65,7 @@
   </div>
 
 
-
+  <!-- 按钮组件 -->
   <e-button>
     按钮1
   </e-button>
@@ -65,14 +82,11 @@
     按钮4
   </e-button>
 
-
   <!-- 按钮组   -->
-
   <e-button-group>
       <e-button icon-type="left">
         上一页
       </e-button>
-
 
     <e-button>
       更多
