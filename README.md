@@ -100,6 +100,25 @@ export default {
 
 ## 文档
 
+1. 网格组件
+
+1 使用示例
+
+```html
+
+<!-- gutter表示col之间的间隙;  span表示每列的跨度;  网格分为24等分 -->
+
+<ea-row gutter="12">
+  <ea-col span="8"></ea-col>
+  <ea-col span="8"></ea-col>
+  <ea-col span="8"></ea-col>
+</ea-row>
+```
+
+
+
+
+
 ## 提问
 
 ## 变更记录
