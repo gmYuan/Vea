@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8">
   <title>组件</title>
@@ -33,82 +34,85 @@
   </style>
 
 </head>
+
 <body>
 
-<div id="app">
-  <!-- 网格组件 -->
-  <div class="box">
-    <e-row>
-      <e-col>1</e-col>
-      <e-col>2</e-col>
-      <e-col>3</e-col>
-    </e-row>
+  <div id="app">
+    <!-- 网格组件 -->
+    <div class="box">
+      <e-row>
+        <e-col>1</e-col>
+        <e-col>2</e-col>
+        <e-col>3</e-col>
+      </e-row>
 
-    <!--设置 span跨度-->
-    <e-row>
-      <e-col :span="2">2</e-col>
-      <e-col :span="22">22</e-col>
-    </e-row>
-  </div>
-
-
-
-  <!-- input组件 -->
-  <div class="box">
-    <e-input value="Normal" @change="inputChange"></e-input>
-    <e-input value="disabled" :disabled="true"></e-input>
-    <e-input value="readonly" :readonly="true"></e-input>
-  </div>
-
-  <div class="box">
-    <e-input value="Error" error-msg="这是错误信息"></e-input>
-  </div>
+      <!--设置 span跨度-->
+      <e-row>
+        <e-col :span="2">2</e-col>
+        <e-col :span="22">22</e-col>
+      </e-row>
+    </div>
 
 
-  <!-- 按钮组件 -->
-  <e-button>
-    按钮1
-  </e-button>
 
-  <e-button icon-type="settings">
-    按钮2
-  </e-button>
+    <!-- input组件 -->
+    <div class="box">
+      <e-input value="Normal" @change="inputChange"></e-input>
+      <e-input value="disabled" :disabled="true"></e-input>
+      <e-input value="readonly" :readonly="true"></e-input>
+    </div>
 
-  <e-button icon-type="settings" icon-position="right">
-    按钮3
-  </e-button>
+    <div class="box">
+      <e-input value="Error" error-msg="这是错误信息"></e-input>
+    </div>
 
-  <e-button icon-type="settings" :has-loading="false">
-    按钮4
-  </e-button>
 
-  <!-- 按钮组   -->
-  <e-button-group>
+    <!-- 按钮组件 -->
+    <e-button>
+      按钮1
+    </e-button>
+
+    <e-button icon-type="settings">
+      按钮2
+    </e-button>
+
+    <e-button icon-type="settings" icon-position="right">
+      按钮3
+    </e-button>
+
+    <e-button icon-type="settings" :has-loading="false">
+      按钮4
+    </e-button>
+
+    <!-- 按钮组   -->
+    <e-button-group>
       <e-button icon-type="left">
         上一页
       </e-button>
 
-    <e-button>
-      更多
-    </e-button>
-    <e-button icon-type="right" icon-position="right">
-      下一页
-    </e-button>
+      <e-button>
+        更多
+      </e-button>
+      
+      <e-button icon-type="right" icon-position="right">
+        下一页
+      </e-button>
 
-  </e-button-group>
-
-
-  <!--  图标组件示例  -->
-  <e-icon icon-name="download" :style="{margin: `25px`}"></e-icon>
+    </e-button-group>
 
 
-  <!-- 单元测试部分 -->
-  <div id="test"></div>
+    <!--  图标组件示例  -->
+    <e-icon icon-name="download" :style="{margin: `25px`}"></e-icon>
 
 
-</div>
+    <!-- 单元测试部分 -->
+    <div id="test"></div>
 
 
-<script src="./src/app.js"></script>
+  </div>
+
+
+  <script src="./src/app.js"></script>
 </body>
+
 </html>

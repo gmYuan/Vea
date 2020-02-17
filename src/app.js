@@ -27,7 +27,7 @@ Vue.component('e-col', Col)
 new Vue({
   el: '#app',
 
-  methods: {
+  methods: {   // Input组件的change事件
     inputChange(e) {
       console.log('新值是', e.target.value)
     }

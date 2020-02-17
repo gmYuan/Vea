@@ -1,9 +1,11 @@
 <template>
-  <button class="e-button" :class= "{[`icon-${iconPosition}`]: true} " @click="changeIcon">
+  <button class="e-button" :class= "{[`icon-${iconPosition}`]: true} " 
+          @click="changeIcon"
+  >
 
     <e-icon :icon-name="iconType" v-if="iconType && !showLoading" class="icon"></e-icon>
     <!-- 加载图标   -->
-    <e-icon icon-name="loading" class="icon loading" v-if="showLoading"></e-icon>
+    <e-icon icon-name="loading" v-if="showLoading" class="icon loading" ></e-icon>
 
 
     <div class="content">

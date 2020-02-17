@@ -63,8 +63,7 @@
    --border-color-hover: #666;
    --button-active-bg: #eee;
    */
-  $font-size: 12px;
-
+ 
   $height: 32px;
   $border-color: #999;
   $border-radius: 4px;

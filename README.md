@@ -59,6 +59,45 @@ export default {
 }
 ```
 
+## 组件
+
+1 Button组件
+
+1. 支持一般状态、hover状态、active状态、focus状态 样式设置:  使用 CSS/SCSS变量来 统一管理
+
+2. (1) button支持图标显示: svg的引入和使用;
+
+    (2) slot: 父->子组件传递HTML内容; props: 父->子组件传递值
+
+3. 图标支持左右位置设置: props的icon-position变量 + :class + flex:order属性
+
+4. button组件的icon支持 点击显示loading状态
+
+5. button支持按钮组组件: (1) 边框重合问题解决: 负值margin-left + :not(:first-child)
+
+    (2) 限制按钮组slot类型: this.$el.children获取DOM元素
+
+
+1 Input组件
+
+1. 支持一般状态、hover状态、focus状态、disabled状态、、error状态  显示不同样式
+
+2. 支持Input文本内容传入: props
+
+3. 支持错误信息和图标 传入显示: props + v-if + :class设置样式
+
+4. 支持 监听Input的事件: change、input、 focus、 blur: $emit()
+
+
+## 测试
+
+1. 单元测试步骤
+
+(1) 引入chai单元测试库: chai.expect
+
+(2) 创建组件实例构造函数: vue.extend(组件名)
+
+
 ## 文档
 
 ## 提问
