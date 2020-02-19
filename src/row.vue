@@ -22,9 +22,6 @@ export default {
     }
   },
 
-
-
-
   mounted() {
     this.$children.forEach(vm => {
       vm.gutter = this.gutter
@@ -38,6 +35,7 @@ export default {
 <style lang="scss" scoped>
 .row {
   display: flex;
+  flex-wrap: wrap;
 }
 
 </style>

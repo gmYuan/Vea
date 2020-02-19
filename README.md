@@ -108,6 +108,8 @@ export default {
 
 4. gutter实现: row设置 padding + col设置负margin + 父组件设置子组件变量值- this.$children遍历
 
+5. 支持 简单的响应式: col组件的Props(检测) + :class设置CSS类 + @media()媒体查询
+
 
 
 ## 测试

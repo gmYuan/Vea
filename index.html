@@ -42,26 +42,45 @@
     <!-- 网格组件 -->
     <div class="box" style="outline: 1px solid grey;">
 
-      <!--设置 span跨度-->
+      <!--S1 设置 span跨度-->
       <e-row>
         <e-col span="2">2</e-col>
         <e-col span="20" offset="2">22 + offset=2 </e-col>
-      </e-row> 
-
-      <!--设置 offset边距-->
+      </e-row>
+      
+      <!--S2 设置 offset边距-->
       <e-row>
         <e-col span="4">4</e-col>
         <e-col span="4" offset="6">4  + offset=6 </e-col>
         <e-col span="8" offset="2">8 + offset=2 </e-col>
       </e-row>
 
-      <!--设置 gutter边距-->
+      <!--S3 设置 gutter边距-->
       <e-row gutter="20">
         <e-col>1</e-col>
         <e-col>2</e-col>
         <e-col>3</e-col>
       </e-row>
 
+      <!--设置 媒体查询-->
+      <e-row>
+        <e-col span="24" 
+          :ipad="{span:8}"
+          :narrow-pc="{span:4}"
+          :pc="{span:2}"
+          :wide-pc="{span:1}"
+        >
+           A 
+        </e-col>
+        <e-col span="24"
+          :ipad="{span:16}"
+          :narrow-pc="{span:20}"
+          :pc="{span:22}"
+          :wide-pc="{span:23}"
+        >
+          B
+        </e-col>
+      </e-row> 
 
     </div>
 
