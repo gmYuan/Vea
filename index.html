@@ -38,19 +38,31 @@
 <body>
 
   <div id="app">
+  
     <!-- 网格组件 -->
-    <div class="box">
+    <div class="box" style="outline: 1px solid grey;">
+
+      <!--设置 span跨度-->
       <e-row>
+        <e-col span="2">2</e-col>
+        <e-col span="20" offset="2">22 + offset=2 </e-col>
+      </e-row> 
+
+      <!--设置 offset边距-->
+      <e-row>
+        <e-col span="4">4</e-col>
+        <e-col span="4" offset="6">4  + offset=6 </e-col>
+        <e-col span="8" offset="2">8 + offset=2 </e-col>
+      </e-row>
+
+      <!--设置 gutter边距-->
+      <e-row gutter="20">
         <e-col>1</e-col>
         <e-col>2</e-col>
         <e-col>3</e-col>
       </e-row>
 
-      <!--设置 span跨度-->
-      <e-row>
-        <e-col :span="2">2</e-col>
-        <e-col :span="22">22</e-col>
-      </e-row>
+
     </div>
 
 

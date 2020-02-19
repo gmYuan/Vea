@@ -59,7 +59,7 @@ export default {
 }
 ```
 
-## 组件
+## 组件文档
 
 1 Button组件
 
@@ -78,7 +78,7 @@ export default {
     (2) 限制按钮组slot类型: this.$el.children获取DOM元素
 
 
-1 Input组件
+2 Input组件
 
 1. 支持一般状态、hover状态、focus状态、disabled状态、、error状态  显示不同样式
 
@@ -89,25 +89,12 @@ export default {
 4. 支持 监听Input的事件: change、input、 focus、 blur: $emit()
 
 
-## 测试
+3 网格组件
 
-1. 单元测试步骤
-
-(1) 引入chai单元测试库: chai.expect
-
-(2) 创建组件实例构造函数: vue.extend(组件名)
-
-
-## 文档
-
-1. 网格组件
-
-1 使用示例
+1. 使用示例
 
 ```html
-
 <!-- gutter表示col之间的间隙;  span表示每列的跨度;  网格分为24等分 -->
-
 <ea-row gutter="12">
   <ea-col span="8"></ea-col>
   <ea-col span="8"></ea-col>
@@ -115,9 +102,15 @@ export default {
 </ea-row>
 ```
 
+2. span跨度实现: props + :class + scss的for循环
+
+3. offset间距实现: 同上
+
+4. gutter实现: row设置 padding + col设置负margin + 父组件设置子组件变量值- this.$children遍历
 
 
 
+## 测试
 
 ## 提问
 
