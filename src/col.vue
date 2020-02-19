@@ -73,7 +73,7 @@ export default {
   width: 100%;
   padding: 0 10px;
 
-  @for $i from 1 through 24 {
+  @for $i from 1 through 24 {   // 默认phone样式
     &.col-#{$i} {
       width: ($i / 24) * 100%;
     }
@@ -92,7 +92,7 @@ export default {
   }
 
  
-  @media (min-width: 577px) and (max-width: 768px) {
+  @media (min-width: 577px) {     //ipad,就近兼容原则,当没有传时默认显示 phone样式
     $class-prefix: col-ipad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
@@ -107,7 +107,7 @@ export default {
     }
   }
 
-  @media (min-width: 769px) and (max-width: 992px) {
+  @media (min-width: 769px) {
     $class-prefix: col-narrow-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
@@ -122,7 +122,7 @@ export default {
     }
   }
 
-  @media (min-width: 993px) and (max-width: 1200px) {
+  @media (min-width: 993px) {
     $class-prefix: col-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
