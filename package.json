@@ -6,7 +6,6 @@
   "scripts": {
     "start": "npx parcel index.html --no-cache",
     "build": "parcel build index.html",
-
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
@@ -25,6 +24,7 @@
   },
   "homepage": "https://github.com/gmYuan/Vue-UI#readme",
   "dependencies": {
+    "git-open": "^2.1.0",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4"
   },
