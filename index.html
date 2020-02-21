@@ -28,6 +28,8 @@
       font-size: var(--font-size);
     }
 
+
+
     .box {
       margin: 20px;
     }
@@ -36,8 +38,26 @@
     .demo {  
       background: #ddd;
       border: 1px solid #666;
-      height: 100px;
+      height: 50px;
     }
+
+    /* layout组件部分 */
+    .sider {
+      background: #666;
+      width: 150px;
+    }
+    
+    .header {
+      background: #999;
+      height: 20px;
+    }
+
+    .footer {
+      background: #ccc;
+      height: 20px;
+    }
+
+
   </style>
 
 </head>
@@ -45,6 +65,27 @@
 <body>
 
   <div id="app">
+
+
+    <!-- layout布局组件 -->
+    <div class="box">
+      
+      <!-- 左- 中下布局 -->
+      <e-layout>
+        <e-sider>sider</e-sider>
+
+        <e-layout>
+         <e-header>header</e-header>
+         <e-content>content</e-content>
+         <e-footer>footer</e-footer>
+        </e-layout>
+      </e-layout>
+
+    </div>
+   
+
+
+
   
     <!-- 网格组件 -->
     <div class="box" style="outline: 1px solid grey;">

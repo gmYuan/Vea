@@ -12,6 +12,16 @@ import Input from './input'
 import Row from './row'
 import Col from './col'
 
+/* layout布局组件 */
+import Layout from './layout'
+import Header from './header'
+import Sider from './sider'
+import Content from './content'
+import Footer from './footer'
+
+
+
+
 
 Vue.component('e-button', Button)
 Vue.component('e-icon', Icon)
@@ -19,9 +29,14 @@ Vue.component('e-button-group', ButtonGroup)
 
 Vue.component('e-input', Input)
 
-
 Vue.component('e-row', Row)
 Vue.component('e-col', Col)
+
+Vue.component('e-layout', Layout)
+Vue.component('e-header', Header)
+Vue.component('e-content', Content)
+Vue.component('e-footer', Footer)
+Vue.component('e-sider', Sider)
 
 
 new Vue({

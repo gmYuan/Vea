@@ -91,24 +91,27 @@ export default {
 
 3 网格组件
 
-1. 使用示例
+1. span跨度实现: props + :class + scss的for循环
 
-```html
-<!-- gutter表示col之间的间隙;  span表示每列的跨度;  网格分为24等分 -->
-<ea-row gutter="12">
-  <ea-col span="8"></ea-col>
-  <ea-col span="8"></ea-col>
-  <ea-col span="8"></ea-col>
-</ea-row>
-```
+2. offset间距实现: 同上
 
-2. span跨度实现: props + :class + scss的for循环
+3. gutter实现: row设置 padding + col设置负margin + 父组件设置子组件变量值- this.$children遍历
 
-3. offset间距实现: 同上
+4. 支持 简单的响应式: col组件的Props(检测) + :class设置CSS类 + @media()媒体查询
 
-4. gutter实现: row设置 padding + col设置负margin + 父组件设置子组件变量值- this.$children遍历
 
-5. 支持 简单的响应式: col组件的Props(检测) + :class设置CSS类 + @media()媒体查询
+4 layout组件
+
+1. 上中下布局: flex + flex-direction
+
+2. 上- 左右- 下布局: this.$children + vm.$options.name + :class类名 => 有sider时更高flex-direction
+
+3. 左- 上中下布局: 同上 + layout组件设置: flex-grow: 1
+
+
+
+
+
 
 
 

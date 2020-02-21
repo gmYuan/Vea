@@ -102,7 +102,7 @@ export default {
   .col-inner {
     outline: 1px solid red;
     background: yellow;
-    height: 100px;
+    height: 50px;
   }
 
  
