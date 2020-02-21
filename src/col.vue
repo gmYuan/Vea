@@ -39,15 +39,15 @@ export default {
     colClasses() {
       let { span, offset } = this;
       let { ipad, narrowPc, pc, widePc } = this;
-      return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
+      let createClasses = this.createClasses
 
-        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
-        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(widePc ? [`col-wide-pc-${widePc.span}`] : [])
-      ];
+      return [
+        ...createClasses({span, offset}),
+        ...createClasses(ipad, 'ipad-'),
+        ...createClasses(narrowPc, 'narrow-pc-'),
+        ...createClasses(pc, 'pc-'),
+        ...createClasses(widePc, 'wide-pc-'),
+      ]
     },
 
     colStyle() {
@@ -63,7 +63,21 @@ export default {
     return {
       gutter: 0
     };
-  }
+  },
+
+  methods: {
+    createClasses (obj, str = '') {
+      if (!obj) {return []}
+      let array = []
+      if (obj.span) { array.push(`col-${str}${obj.span}`) }
+      if (obj.offset) { array.push(`offset-${str}${obj.offset}`) }
+      return array
+    }
+  },
+
+
+
+
 };
 
 </script>
