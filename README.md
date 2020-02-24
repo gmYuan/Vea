@@ -126,6 +126,8 @@ export default {
 
 4. 支持 toast的传入文本内容可以是富文本: props- enableHtml + v-if & slot + v-html & vm.slots.default[0]
 
+5. 支持toast显示在页面的位置为 top/bottom/middle:  fixed定位 + :class + valiadtor()传入值检测
+
 
 
 

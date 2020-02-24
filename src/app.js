@@ -62,7 +62,9 @@ new Vue({
           text: '知道了',
           callback() { alert('执行了关闭回调') }       
         },
-        enableHtml: false
+        enableHtml: false,
+
+        position: 'middle'
 
       })
     }

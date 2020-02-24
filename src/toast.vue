@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" ref="wrapper" :class="toastClasses">
     <div class="message">
       <slot v-if="!enableHtml"></slot>
 
@@ -51,9 +51,26 @@ export default {
     enableHtml: {
       type: Boolean,
       default: false
-    }
+    },
+
+    //S5 toast在页面的显示位置
+    position: {
+       type: String,
+       validator(value) {
+         return ( ['top', 'middle', 'bottom'].indexOf(value) >= 0 )
+       }
+    },
 
   },
+
+  computed: {
+    toastClasses() {
+      return [`position-${this.position}`]
+    }
+  },
+
+
+
  
   
   mounted () {
@@ -109,9 +126,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   line-height: 1.8;
 
   position: fixed; 
-  top: 10%; 
   left: 50%; 
-  transform: translateX(-50%); 
   display: flex;
   align-items: center;
 
@@ -121,6 +136,22 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.50);
   padding: 0 16px;
+
+
+  &.position-top{
+    top: 5%; 
+    transform: translate(-50%, 0%);
+  }
+
+  &.position-middle{
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.position-bottom{
+    bottom: 5%;
+    transform: translate(-50%, 0%);
+  }
 
 }
 
