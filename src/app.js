@@ -56,18 +56,22 @@ new Vue({
     },
 
     // toast组件触发事件
-    showToast() {
-      this.$toast(`你的智商目前为 ${Math.random() * 100}`, {
+    showToast(position) {
+      this.$toast(`当前随机数为 ${parseInt(Math.random() * 100) }`, {
         closeButton: {
           text: '知道了',
           callback() { alert('执行了关闭回调') }       
         },
         enableHtml: false,
 
-        position: 'middle'
-
+        position
       })
-    }
+      
+    },
+    showToast1(){ this.showToast('top') },
+    showToast2(){ this.showToast('middle') },
+    showToast3(){ this.showToast('bottom') },
+
 
 
   }

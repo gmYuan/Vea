@@ -12,6 +12,7 @@ MyPlugin.install = function (Vue, options) {
   Vue.prototype.$toast = function (message, toastOptions) {
     if (currentToast) {
       currentToast.close()
+      currentToast = null  // 手动释放currentToast
     }
 
     currentToast = createToast(Vue, message, toastOptions)

@@ -130,7 +130,7 @@ export default {
 
 6. 支持toast个数覆盖显示: vm.close() + currentToast标识符
 
-
+7. 支持 toast显示动画: 父子div + transform + animate
 
 
 
