@@ -57,7 +57,14 @@ new Vue({
 
     // toast组件触发事件
     showToast() {
-      this.$toast('我是toast')
+      this.$toast('我是toast', {
+        closeButton: {
+          text: '知道了',
+          callback() { alert('执行了关闭回调') }       
+        },
+        enableHtml: false
+
+      })
     }
 
 

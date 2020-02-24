@@ -117,6 +117,14 @@ export default {
 
   (2) Vue.extend全局API + vm.$solots.default实例属性 + vm.$mount()实例方法
 
+2. 支持toast默认 5s后自动关闭: setTimeout + vm.$el.remove()
+
+3.1 支持 toast关闭按钮的 内容文本 自定义: props- closeButton对象 + propsData + vm.closeButton
+
+3.2 支持 toast关闭按钮点击后 执行传入的回调函数: 同上
+
+
+4. 支持 toast的传入文本内容可以是富文本: props- enableHtml + v-if & slot + v-html & vm.slots.default[0]
 
 
 
