@@ -109,7 +109,13 @@ export default {
 3. 左- 上中下布局: 同上 + layout组件设置: flex-grow: 1
 
 
+5 Toast组件
 
+1. 基本使用方法 this.$toast('xxxx'):
+
+  (1) Vue插件MyPlugin.install +  Vue.use;
+
+  (2) Vue.extend全局API + vm.$solots.default实例属性 + vm.$mount()实例方法
 
 
 

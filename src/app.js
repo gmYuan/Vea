@@ -20,6 +20,11 @@ import Content from './content'
 import Footer from './footer'
 
 
+/* toast组件 */
+import Toast from './toast'
+import MyPlugin from './common/plugin' 
+Vue.use(MyPlugin)
+
 
 
 
@@ -38,14 +43,24 @@ Vue.component('e-content', Content)
 Vue.component('e-footer', Footer)
 Vue.component('e-sider', Sider)
 
+Vue.component('e-toast', Toast)
+
 
 new Vue({
   el: '#app',
 
-  methods: {   // Input组件的change事件
+  methods: {  
+    // Input组件的change事件
     inputChange(e) {
       console.log('新值是', e.target.value)
+    },
+
+    // toast组件触发事件
+    showToast() {
+      this.$toast('我是toast')
     }
+
+
   }
 
 })
