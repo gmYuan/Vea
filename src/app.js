@@ -63,7 +63,8 @@ new Vue({
           callback() { alert('执行了关闭回调') }       
         },
         enableHtml: false,
-
+        autoClose: 3,
+          
         position
       })
       

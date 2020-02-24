@@ -21,17 +21,15 @@ export default {
   name: "eToast",
 
   props: {
-    // S2.1 是否自动关闭toast
+    // S1 + S2 是否自动关闭toast + 自动关闭toast的延时时间
     autoClose: {
-      type: Boolean,
-      default: true
+      type: [Boolean, Number],
+      default: 5,
+      validator(value) {
+        return value === false || typeof value === "number";
+      }
     },
 
-    // S2.2 自动关闭toast的延时时间
-    autoCloseDelay: {
-      type: Number,
-      default: 5
-    },
 
     //S3 关闭按钮 文本内容 + 回调函数
     closeButton: {
@@ -84,7 +82,7 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
 
@@ -134,11 +132,13 @@ $animation-duration: 600ms;
 }
 
 @keyframes fade-in {
-  0% {opacity: 0; }
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-
 
 .wrapper {
   position: fixed;
@@ -149,7 +149,6 @@ $animation-duration: 600ms;
     & .toast {
       animation: slide-down $animation-duration;
     }
-
   }
 
   &.position-middle {
@@ -163,13 +162,12 @@ $animation-duration: 600ms;
 
   &.position-bottom {
     bottom: 5%;
-   
+
     & .toast {
       animation: slide-up $animation-duration;
     }
   }
 }
-
 
 .toast {
   font-size: $font-size;
@@ -184,8 +182,6 @@ $animation-duration: 600ms;
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 0 16px;
-
-  
 }
 
 .message {
