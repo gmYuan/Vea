@@ -26,6 +26,12 @@ import MyPlugin from './common/plugin'
 Vue.use(MyPlugin)
 
 
+/* tabs组件 */
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsBody from './tabs-body'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
 
 
 Vue.component('e-button', Button)
@@ -45,9 +51,19 @@ Vue.component('e-sider', Sider)
 
 Vue.component('e-toast', Toast)
 
+Vue.component('e-tabs', Tabs)
+Vue.component('e-tabs-head', TabsHead)
+Vue.component('e-tabs-body', TabsBody)
+Vue.component('e-tabs-item', TabsItem)
+Vue.component('e-tabs-pane', TabsPane)
+
 
 new Vue({
   el: '#app',
+
+  data: {
+    selectedTab: '',
+  },
 
   methods: {  
     // Input组件的change事件

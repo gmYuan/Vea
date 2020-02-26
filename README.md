@@ -133,6 +133,16 @@ export default {
 7. 支持 toast显示动画: 父子div + transform + animate
 
 
+6 Tabs组件
+
+1. 基本使用方法 this.$toast('xxxx'):
+
+  (1) Vue插件MyPlugin.install +  Vue.use;
+
+
+
+
+
 
 ## 测试
 
