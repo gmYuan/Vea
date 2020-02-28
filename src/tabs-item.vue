@@ -1,48 +1,63 @@
 <template>
-
-  <div class="tabs-item" @click="xxx">
+  <div class="tabs-item" @click="xxx" :class="classes">
     <slot></slot>
-
-    
-
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'eTabsItem',
-    inject: ['eventBus'],
+export default {
+  name: "eTabsItem",
+  inject: ["eventBus"],
 
-    props: {
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-
-      name: {
-        type: [String, Number],
-        required: true
-      }
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
     },
 
-    created () {
-      this.eventBus.$on('update:selected', (name) => {
-        console.log('当前item是', name)
-      })
-    },
+    name: {
+      type: [String, Number],
+      required: true
+    }
+  },
 
-    methods: {
-      xxx () {
-        this.eventBus.$emit('update:selected', this.name)
-      }	    
-    }	  
+  computed: {
+    classes() {
+      return {
+        active: this.active
+      };
+    }
+  },
+
+  data() {
+    return {
+      active: false
+    };
+  },
 
 
-    
+  created() {
+    this.eventBus.$on("update:selected", name => {
+      this.active = (name === this.name)
+    });
+  },
+
+  methods: {
+    xxx() {
+      this.eventBus.$emit("update:selected", this.name);
+    }
   }
+};
 </script>
 
 
-<style>
-  
-</style> 
+<style lang="scss" scoped>
+.tabs-item {
+  flex-shrink: 0;
+  padding: 0 1em;
+
+  &.active {
+    background: red;
+  }
+}
+</style>

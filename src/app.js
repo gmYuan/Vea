@@ -62,7 +62,7 @@ new Vue({
   el: '#app',
 
   data: {
-    selectedTab: '',
+    selectedTab: 'sports',
   },
 
   methods: {  

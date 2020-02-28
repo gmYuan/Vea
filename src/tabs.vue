@@ -7,48 +7,46 @@
 
 <script>
 
-  import Vue from 'vue'
+import Vue from "vue";
 
-  export default {
-    name: 'eTabs',
+export default {
+  name: "eTabs",
 
-    props: {
-      selected: {
-        type: String,
-        required: true
-      },
-
-      direction: {
-        type: String,
-        default: 'horizontal',
-        validator (value) {
-          return ['horizontal', 'vertical'].indexOf(value) >= 0
-        }
-      }
+  props: {
+    selected: {
+      type: String,
+      required: true
     },
 
-    data() {
-      return {
-        eventBus: new Vue()
+    direction: {
+      type: String,
+      default: "horizontal",
+      validator(value) {
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
       }
-
-    },
-
-    provide(){
-      return {
-        eventBus: this.eventBus
-      }
-    },
-
-    created () {
-      // this.$emit('update:selected', 'xxx')
-
-     
     }
+  },
+
+  data() {
+    return {
+      eventBus: new Vue()
+    };
+  },
+
+  provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+
+  mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   }
+  
+}
+
 </script>
 
 
 <style>
-  
 </style> 
