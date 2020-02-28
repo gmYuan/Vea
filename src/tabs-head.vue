@@ -10,7 +10,9 @@
 
 <script>
   export default {
-    name: 'eTabsHead'
+    name: 'eTabsHead',
+
+    inject: ['eventBus'],
   }
 </script>
 

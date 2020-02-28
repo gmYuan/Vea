@@ -10,7 +10,17 @@
 
 <script>
   export default {
-    name: 'eTabsPane'
+    name: 'eTabsPane',
+    inject: ['eventBus'],
+
+    created () {
+      this.eventBus.$on('update:selected', (name) => {
+        console.log('当前pane是', name)
+      })
+    }
+
+
+
   }
 </script>
 

@@ -6,6 +6,9 @@
 
 
 <script>
+
+  import Vue from 'vue'
+
   export default {
     name: 'eTabs',
 
@@ -24,8 +27,23 @@
       }
     },
 
+    data() {
+      return {
+        eventBus: new Vue()
+      }
+
+    },
+
+    provide(){
+      return {
+        eventBus: this.eventBus
+      }
+    },
+
     created () {
       // this.$emit('update:selected', 'xxx')
+
+     
     }
   }
 </script>

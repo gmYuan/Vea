@@ -135,10 +135,23 @@ export default {
 
 6 Tabs组件
 
-1. 基本使用方法 this.$toast('xxxx'):
+1. 为了便于给tabs的nav和pane添加背景色等样式, 所以tabs组件使用结构为
 
-  (1) Vue插件MyPlugin.install +  Vue.use;
+tabs
+  -- tabs-head
+    -- tabs-item
 
+  -- tabs-body
+    -- tabs-pane
+
+2. 支持给自定义tabs组件新增类名以 增加背景色等: 直接在e-tabs-head标签上 新增类名即可;
+
+3. 支持头部右侧设置 按钮等内容: e-tabs-head组件内部 `<slot name="actions"></slot> + slot`
+
+
+4. 支持头部 禁用样式: tabs-item组件内部props: disabled
+
+5. 支持tab内容切换: 子->父->爷->兄弟->孙的 多方向的通信: `eventBus + provide/inject`
 
 
 
