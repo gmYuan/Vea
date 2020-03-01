@@ -53,11 +53,19 @@ export default {
 
 <style lang="scss" scoped>
 .tabs-item {
+  height: 100%;
   flex-shrink: 0;
   padding: 0 1em;
 
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid green;
+
+ 
   &.active {
     background: red;
   }
+  
 }
 </style>

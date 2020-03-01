@@ -2,7 +2,6 @@
   <div class="tabs-pane" v-if="active">
     <slot></slot>
 
-    <slot name="actions"></slot>
   </div>
 </template>
 
@@ -34,7 +33,7 @@ export default {
 
   created() {
     this.eventBus.$on("update:selected", name => {
-      this.active = name === this.name;
+      this.active = (name === this.name);
     });
   }
 };

@@ -62,7 +62,7 @@ new Vue({
   el: '#app',
 
   data: {
-    selectedTab: 'sports',
+    selectedTab: 'sports',    // tabs组件默认绑定值
   },
 
   methods: {  
