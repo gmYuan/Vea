@@ -158,7 +158,17 @@ tabs
 
 7 popover组件
 
+1. 支持点击按钮，popover内容的切换和隐藏: v-if + 点击事件
 
+2. 支持点击文档空白部分隐藏内容:
+
+  阻止整个popover部分冒泡 + document.addEventListener + document.removeEventListener
+
+3. 支持点击popover内容部分不隐藏: 阻止popover内容部分的 点击冒泡事件
+
+4. 避免popover内容部分 受外层容器overflow:hidden的影响:
+
+  content的refs + document.body.appendChild + tragger的refs ==> 获取元素位置 + scrollTop值
 
 
 

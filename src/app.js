@@ -74,6 +74,13 @@ new Vue({
   },
 
   methods: {  
+
+    yyy() {
+      console.log('最外层')
+    },
+
+
+
     // Input组件的change事件
     inputChange(e) {
       console.log('新值是', e.target.value)
@@ -96,6 +103,8 @@ new Vue({
     showToast1(){ this.showToast('top') },
     showToast2(){ this.showToast('middle') },
     showToast3(){ this.showToast('bottom') },
+
+
 
 
 
