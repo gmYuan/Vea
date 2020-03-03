@@ -64,6 +64,25 @@
 
   <div id="app">
 
+    <!-- popover组件 -->
+    <div class="box" style="padding-left: 50px; padding-top: 50px;">
+      <e-popover>
+        <template v-slot:content>
+      	  <div>popover内容</div>
+        </template>
+        <button>点我</button>
+      </e-popover>
+
+      <e-popover>
+        <template v-slot:content>
+      	  <div>popover内容</div>
+        </template>
+        <button>点我</button>
+      </e-popover>
+     
+    </div>
+
+
     <!-- tabs组件 -->
     <div class="box">
 
@@ -76,11 +95,11 @@
           </template>
 
           <e-tabs-item name="woman" disabled>
-            <!-- 头部内内容 可以设置icon图标--> 
+            <!-- 头部内内容 可以设置icon图标-->
             美女
           </e-tabs-item>
 
-           <!-- 头部 可以禁用--> 
+          <!-- 头部 可以禁用-->
           <e-tabs-item name="finance">
             财经
           </e-tabs-item>
@@ -93,7 +112,7 @@
         </e-tabs-head>
 
         <e-tabs-body>
-          <!-- 每个tab对应内容, name属性表示对应在 哪个tab导航内--> 
+          <!-- 每个tab对应内容, name属性表示对应在 哪个tab导航内-->
           <e-tabs-pane name="woman">
             美女相关资讯
           </e-tabs-pane>
@@ -105,7 +124,7 @@
           <e-tabs-pane name="sports">
             体育相关资讯
           </e-tabs-pane>
-          
+
         </e-tabs-body>
 
       </e-tabs>

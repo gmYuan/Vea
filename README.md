@@ -153,7 +153,14 @@ tabs
 
 5. 支持tab内容切换: 子->父->爷->兄弟->孙的 多方向的通信: `eventBus + provide/inject`
 
-6. 支持tab切换时的 下划线切换: 
+6. 支持tab切换时的 下划线切换: 发布时传出当前e-tabs-item组件实例 + 获取div的CSS相关信息;
+
+
+7 popover组件
+
+
+
+
 
 
 

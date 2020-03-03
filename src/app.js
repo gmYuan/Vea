@@ -34,6 +34,12 @@ import TabsItem from './tabs-item'
 import TabsPane from './tabs-pane'
 
 
+/* popover组件 */
+import Popover from './popover'
+
+
+
+
 Vue.component('e-button', Button)
 Vue.component('e-icon', Icon)
 Vue.component('e-button-group', ButtonGroup)
@@ -56,6 +62,8 @@ Vue.component('e-tabs-head', TabsHead)
 Vue.component('e-tabs-body', TabsBody)
 Vue.component('e-tabs-item', TabsItem)
 Vue.component('e-tabs-pane', TabsPane)
+
+Vue.component('e-popover', Popover)
 
 
 new Vue({
