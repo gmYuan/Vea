@@ -66,25 +66,20 @@
 
     <!-- popover组件 -->
     <div class="box" style="padding-left: 50px; padding-top: 50px;">
-      <div style=" border: 1px solid green; padding: 5px;"
-        @click="yyy"
-      >
-        
-        <e-popover>
-          <template v-slot:content>
-            <div>popover内容</div>
-          </template>
-          <button>点我</button>
-        </e-popover>
 
-        <e-popover>
-          <template v-slot:content>
-            <div>popover内容</div>
-          </template>
-          <button>点我</button>
-        </e-popover>
+      <e-popover>
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
 
-      </div>
+      <e-popover>
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
 
     </div>
 
