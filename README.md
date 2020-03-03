@@ -171,6 +171,15 @@ tabs
   content的refs + document.body.appendChild + tragger的refs ==> 获取元素位置 + scrollTop值
 
 
+5. 避免在组件内部使用阻止冒泡，否则会让使用者最外层点击事件失效
+
+S1 通过事件对象 e.target + Node1.contains(node2)来判断 点击内容是 tragger/content/document部分
+
+S2 只有是tragger部分被点击时，才切换 content部分的显示/隐藏
+
+S3 显示content部分时: JS设置位置 + document监听点击事件以 实现点击空白部分隐藏内容
+
+S4 隐藏content部分时: 去除 document的事件监听
 
 
 

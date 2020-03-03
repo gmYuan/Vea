@@ -1,8 +1,9 @@
 <template>
-  <div class="popover" @click.stop="xxx">
-    <div class="content-wrapper" ref="contentWrapper" v-if="visible" @click.stop>
+  <div class="popover" ref="popover" @click="onClick">
+    <div class="content-wrapper" ref="contentWrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
+
     <div ref="triggerWrapper">
       <slot></slot>
     </div>
@@ -20,34 +21,52 @@ export default {
   },
 
   methods: {
-    xxx() {
-      this.visible = !this.visible;
+    onClick(e) {
+      let triggerWrapper = this.$refs.triggerWrapper;
 
-      if (this.visible) {
-        //S4.1 数值切换DOM结构时,可能无法立刻获取到DOM结构，所以需要使用nextTick来获取更新后DOM内容
-        this.$nextTick(() => {
-          document.body.appendChild(this.$refs.contentWrapper);
-          let { top, left } = this.$refs.triggerWrapper.getBoundingClientRect();
-
-          this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-          this.$refs.contentWrapper.style.top = top + window.scrollY +"px";
-        });
-
-        let eventHandler = () => {
-          this.visible = false;
-          console.log("document 隐藏 popover");
-          // S2 为了避免每次点击popover部分会重复创建多个监听器，所以要手动销毁之前创建的 监听器
-          document.removeEventListener("click", eventHandler);
-        };
-
-        // S1监听了文档的点击事件，因为点击了popover部分后 默认会冒泡到文档点击，从而自动执行隐藏操作
-        // 所以，需要让popover的点击事件阻止冒泡
-        document.addEventListener("click", eventHandler);
-      } else {
-        // S3 因为点击popover内容部分，就会默认冒泡触发隐藏事件， 所以也需要避免冒泡
-        console.log("vm 隐藏 popover");
+      if (triggerWrapper.contains(e.target)) {  //S1 触发器部分 的点击事件
+        if (this.visible) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
+    },
+
+    open() {
+      this.visible = true;
+      this.$nextTick(() => {
+        this.setContentPosition();
+        document.addEventListener("click", this.onClickDocument);
+      });
+    },
+
+    close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+
+    onClickDocument(e) {
+      let popoverPart = this.$refs.popover;
+
+      if (e.target.contains(popoverPart)) { // 此时点击的是 最外层/文档空白处，需要隐藏popover
+        this.close();
+      }
+
+    },
+
+    setContentPosition() {
+     
+      let contentWrapper = this.$refs.contentWrapper;
+      let triggerWrapper = this.$refs.triggerWrapper;
+
+      document.body.appendChild(this.$refs.contentWrapper);
+      let { top, left } = triggerWrapper.getBoundingClientRect();
+
+      contentWrapper.style.left = left + window.scrollX + "px";
+      contentWrapper.style.top = top + window.scrollY + "px";
     }
+
   }
 };
 </script>
