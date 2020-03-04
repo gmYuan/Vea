@@ -181,6 +181,10 @@ S3 显示content部分时: JS设置位置 + document监听点击事件以 实现
 
 S4 隐藏content部分时: 去除 document的事件监听
 
+6. 支持popover显示方向为 上下左右: props + :class + CSS样式调整
+
+
+
 
 
 ## 测试
