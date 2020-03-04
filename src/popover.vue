@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" ref="popover" @click="onClick">
+  <div class="popover" ref="popover">
     <div
       class="content-wrapper"
       ref="contentWrapper"
@@ -64,7 +64,6 @@ export default {
   methods: {
     onClick(e) {
       let triggerWrapper = this.$refs.triggerWrapper;
-
       if (triggerWrapper.contains(e.target)) {
         //S1 触发器部分 的点击事件
         if (this.visible) {
@@ -111,7 +110,7 @@ export default {
           top: top + height + window.scrollY
         },
         left: {
-          left: left - 2 * width + window.scrollX,
+          left: left - 2* width + window.scrollX,
           top: top + window.scrollY + (height - height2) / 2
         },
         right: {
@@ -154,6 +153,7 @@ $border-radius: 4px;
     content: "";
     display: block;
     border: 10px solid transparent;
+    // border: 10px solid black;
     width: 0;
     height: 0;
     position: absolute;
@@ -166,10 +166,12 @@ $border-radius: 4px;
     &::before {
       border-top-color: black;
       top: 100%;
+      border-bottom: none;
     }
     &::after {
       border-top-color: white;
-      top: calc(100% - 1px);
+      top: calc(100% - 1px); 
+      border-bottom: none;
     }
   }
 
@@ -178,10 +180,12 @@ $border-radius: 4px;
     &::before {
       border-bottom-color: black;
       bottom: 100%;
+      border-top: none;
     }
     &::after {
       border-bottom-color: white;
       bottom: calc(100% - 1px);
+      border-top: none;
     }
   }
 
