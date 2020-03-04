@@ -183,7 +183,7 @@ S4 隐藏content部分时: 去除 document的事件监听
 
 6. 支持popover显示方向为 上下左右: props + :class + CSS样式调整 => 对if..else用 表结构进行优化
 
-
+7. 支持click和hover两种触发事件: props + refs用addEventListener监听不同类型事件 + 手动销毁
 
 
 

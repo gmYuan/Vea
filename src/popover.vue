@@ -26,6 +26,14 @@ export default {
       validator(value) {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
       }
+    },
+
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "mouseenter"].indexOf(value) >= 0;
+      }
     }
   },
 
@@ -33,6 +41,24 @@ export default {
     return {
       visible: false
     };
+  },
+
+  mounted() {
+    if (this.trigger === "click") {
+      this.$refs.popover.addEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.close);
+    }
+  },
+
+  destroyed() {
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.close);
+    }
   },
 
   methods: {
@@ -80,20 +106,22 @@ export default {
 
       let positions = {
         top: { left: left + window.scrollX, top: top + window.scrollY },
-        bottom: {left: left + window.scrollX , top: top + height + window.scrollY },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + height + window.scrollY
+        },
         left: {
-          left: left - 2 * width + window.scrollX , 
+          left: left - 2 * width + window.scrollX,
           top: top + window.scrollY + (height - height2) / 2
         },
         right: {
           left: left + width + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2 
+          top: top + window.scrollY + (height - height2) / 2
         }
-      }
+      };
 
       contentWrapper.style.left = positions[this.position].left + "px";
       contentWrapper.style.top = positions[this.position].top + "px";
-    
     }
   }
 };
