@@ -68,9 +68,13 @@
     <div class="box" style="padding: 50px;">
 
       <e-popover position="top">
-        <template v-slot:content>
-          <div>popover内容</div>
+        <template #content="{close}">
+          <div> 
+            popover内容
+            <div @click="close" style="cursor: pointer;">关闭</div>
+          </div>
         </template>
+
         <e-button :has-loading="false">点我</e-button>
       </e-popover>
 

@@ -6,7 +6,7 @@
       v-if="visible"
       :class="[`position-${position}`]"
     >
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
 
     <div ref="triggerWrapper" style="display: inline-block;">
@@ -83,6 +83,7 @@ export default {
     },
 
     close() {
+      
       this.visible = false;
       document.removeEventListener("click", this.onClickDocument);
     },
