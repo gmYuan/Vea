@@ -11,8 +11,8 @@
 <script>
 export default {
   name: "eCollapseItem",
-  
-  inject: ['eventBus', 'single'],
+
+  inject: ["eventBus"],
 
   props: {
     title: {
@@ -22,7 +22,7 @@ export default {
     name: {
       type: String,
       required: true
-    },
+    }
   },
 
   data() {
@@ -32,39 +32,44 @@ export default {
   },
 
   mounted() {
-    this.showDefault() 
-     
+    this.showDefault();
+    this.onUpdateItem();
   },
 
   methods: {
     showDefault() {
-      this.eventBus.$on('showDefault', (value) => {
+      this.eventBus.$on("showDefault", value => {
         if (value.includes(this.name)) {
-          this.open = true
+          this.open = true;
         }
-      })
+      });
+    },
+
+    onUpdateItem() {
+      this.eventBus.$on("updateItem", value => {
+        if (value.includes(this.name)) {
+          this.open = true;
+        } else {
+           this.open = false;
+        }
+      });
     },
 
     onClick() {
-      if (this.single) {
-        
+      if (this.open) {
+        //已经开启了，再点击 说明需要隐藏
+        this.eventBus.$emit("closeItem", this.name);
+      } else {
+        this.eventBus.$emit("showItem", this.name);
       }
-      this.open = !this.open
-      this.eventBus.$emit('clickItem', this.name, this.open)
-    },
-
-  },
-
- 
-
-
+    }
+  }
 };
 </script>
 
 
 
 <style lang="scss" scoped>
-
 $grey: #ddd;
 $border-radius: 4px;
 
@@ -87,7 +92,7 @@ $border-radius: 4px;
   }
   &:last-child {
     .title:last-child {
-     border-bottom: none;
+      border-bottom: none;
     }
   }
   .content {
