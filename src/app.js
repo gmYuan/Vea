@@ -38,6 +38,9 @@ import TabsPane from './tabs-pane'
 import Popover from './popover'
 
 
+/* collapse组件 */
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
 
 
 Vue.component('e-button', Button)
@@ -66,6 +69,11 @@ Vue.component('e-tabs-pane', TabsPane)
 Vue.component('e-popover', Popover)
 
 
+Vue.component('e-collapse', Collapse)
+Vue.component('e-collapse-item', CollapseItem)
+
+
+
 new Vue({
   el: '#app',
 
@@ -74,9 +82,6 @@ new Vue({
   },
 
   methods: {  
-
-  
-
 
 
     // Input组件的change事件
@@ -101,10 +106,6 @@ new Vue({
     showToast1(){ this.showToast('top') },
     showToast2(){ this.showToast('middle') },
     showToast3(){ this.showToast('bottom') },
-
-
-
-
 
   }
 

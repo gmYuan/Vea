@@ -189,6 +189,14 @@ S4 隐藏content部分时: 去除 document的事件监听
 
 
 
+8 collapse组件
+
+1. 支持点击切换内容显示: props + v-if
+
+2. 
+
+
+
 
 
 ## 测试
