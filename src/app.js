@@ -79,6 +79,8 @@ new Vue({
 
   data: {
     selectedTab: 'sports',    // tabs组件默认绑定值
+
+    selectedTab2: ['1']  // collapse组件默认绑定值
   },
 
   methods: {  

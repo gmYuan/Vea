@@ -191,11 +191,13 @@ S4 隐藏content部分时: 去除 document的事件监听
 
 8 collapse组件
 
-1. 支持点击切换内容显示: props + v-if
+1. 支持手风琴折叠模式: eventBus
 
-2. 
+S1 点击title时，根据当前内容的 显示/隐藏状态, collapse-item发布 show/close 事件;
 
+S2 collapse根据 show/close事件， 对应push/splice传出的 当前ID值 + 发布update事件
 
+S3 collapse-item根据 传入的显示值Id， 显示对应的 组件内容
 
 
 

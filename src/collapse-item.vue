@@ -1,6 +1,6 @@
 <template>
   <div class="collapseItem">
-    <div class="title" @click="open=!open">{{title}}</div>
+    <div class="title" @click="onClick">{{title}}</div>
     <div class="content" v-if="open">
       <slot></slot>
     </div>
@@ -11,19 +11,57 @@
 <script>
 export default {
   name: "eCollapseItem",
+  
+  inject: ['eventBus', 'single'],
+
   props: {
     title: {
       type: String,
       required: true
-    }
+    },
+    name: {
+      type: String,
+      required: true
+    },
   },
+
   data() {
     return {
       open: false
     };
-  }
+  },
+
+  mounted() {
+    this.showDefault() 
+     
+  },
+
+  methods: {
+    showDefault() {
+      this.eventBus.$on('showDefault', (value) => {
+        if (value.includes(this.name)) {
+          this.open = true
+        }
+      })
+    },
+
+    onClick() {
+      if (this.single) {
+        
+      }
+      this.open = !this.open
+      this.eventBus.$emit('clickItem', this.name, this.open)
+    },
+
+  },
+
+ 
+
+
 };
 </script>
+
+
 
 <style lang="scss" scoped>
 
